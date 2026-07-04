@@ -92,7 +92,8 @@ def can_move(token, dice_value):
     # Exact movement required
     next_position = token.path_index + dice_value
 
-    if next_position > len(token.path) - 1:
+    # Token must reach finish exactly
+    if next_position >= len(token.path):
 
         return False
 
@@ -232,6 +233,10 @@ def move_token(token, steps):
             token.finished = True
 
             print(token.color, "finished!")
+
+            update_token_position(token, 0, 1)
+
+            return
 
     position = token.path[token.path_index]
 

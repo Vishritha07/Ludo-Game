@@ -3,7 +3,7 @@ tokens = []
 CELL_SIZE = 40
 GRID_SIZE = 15
 
-RED_PATH = [
+OUTER_PATH = [
 
     # RED SIDE
     (6, 1),
@@ -75,15 +75,74 @@ RED_PATH = [
 
     (6, 0),
 
-    # connect back to start smoothly
-    (6, 1)
+    
 ]
 
-GREEN_PATH = RED_PATH[13:] + RED_PATH[:13]
+print(len(OUTER_PATH))
 
-YELLOW_PATH = RED_PATH[26:] + RED_PATH[:26]
+RED_HOME_PATH = [
+   
+    (7, 2),
+    (7, 3),
+    (7, 4),
+    (7, 5),
+    (7, 6),
+    (7,7)
 
-BLUE_PATH = RED_PATH[39:] + RED_PATH[:39]
+]
+
+GREEN_HOME_PATH = [
+
+    (2, 7),
+    (3, 7),
+    (4, 7),
+    (5, 7),
+    (6, 7),
+    (7,7)
+
+]
+
+YELLOW_HOME_PATH = [
+
+    (7, 12),
+    (7, 11),
+    (7, 10),
+    (7, 9),
+    (7, 8),
+    (7,7)
+
+]
+
+BLUE_HOME_PATH = [
+
+    (12, 7),
+    (11, 7),
+    (10, 7),
+    (9, 7),
+    (8, 7),
+    (7,7)
+
+]
+
+RED_PATH = OUTER_PATH + RED_HOME_PATH
+
+GREEN_PATH = (
+    OUTER_PATH[13:] +
+    OUTER_PATH[:13] +
+    GREEN_HOME_PATH
+)
+
+YELLOW_PATH = (
+    OUTER_PATH[26:] +
+    OUTER_PATH[:26] +
+    YELLOW_HOME_PATH
+)
+
+BLUE_PATH = (
+    OUTER_PATH[39:] +
+    OUTER_PATH[:39] +
+    BLUE_HOME_PATH
+)
 
 SAFE_CELLS = [
 
@@ -391,3 +450,4 @@ def draw_board(canvas):
         )
 
     return tokens
+
