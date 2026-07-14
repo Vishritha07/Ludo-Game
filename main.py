@@ -216,6 +216,7 @@ def move_token(token, steps):
         if steps == 6:
 
             token.path_index = 0
+            token.has_entered = True
 
         else:
 
@@ -351,6 +352,8 @@ def roll_dice():
 
     # Check if player has any open token
     if not player_has_open_token(current_color):
+         
+         max_attempts = 1 if player_has_entered_before(current_color) else 3
 
          if current_dice_value != 6:
 
@@ -363,7 +366,7 @@ def roll_dice():
 
 
              # 3 failed attempts
-             if attempt_count >= 3:
+             if attempt_count >= max_attempts:
 
                  print("Turn skipped")
 
@@ -383,6 +386,16 @@ def roll_dice():
 
         # Reset after successful 6
         attempt_count = 0
+
+def player_has_entered_before(color):
+
+    for token in tokens:
+
+        if token.color == color and token.has_entered:
+
+            return True
+
+    return False
 
 
 # Roll button

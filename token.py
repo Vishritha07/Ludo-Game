@@ -11,6 +11,7 @@ class Token:
         self.path_index = -1
 
         self.finished = False
+        self.has_entered = False
 
         self.id = canvas.create_oval(
             x,

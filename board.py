@@ -81,66 +81,66 @@ OUTER_PATH = [
 print(len(OUTER_PATH))
 
 RED_HOME_PATH = [
-   
+
+    (7, 1),
     (7, 2),
     (7, 3),
     (7, 4),
     (7, 5),
-    (7, 6),
-    (7,7)
+    (7, 6)
 
 ]
 
 GREEN_HOME_PATH = [
 
+    (1, 7),
     (2, 7),
     (3, 7),
     (4, 7),
     (5, 7),
-    (6, 7),
-    (7,7)
+    (6, 7)
 
 ]
 
 YELLOW_HOME_PATH = [
 
+    (7, 13),
     (7, 12),
     (7, 11),
     (7, 10),
     (7, 9),
-    (7, 8),
-    (7,7)
+    (7, 8)
 
 ]
 
 BLUE_HOME_PATH = [
 
+    (13, 7),
     (12, 7),
     (11, 7),
     (10, 7),
     (9, 7),
-    (8, 7),
-    (7,7)
+    (8, 7)
 
 ]
 
-RED_PATH = OUTER_PATH + RED_HOME_PATH
+RED_PATH = OUTER_PATH[:-1] + RED_HOME_PATH
 
 GREEN_PATH = (
     OUTER_PATH[13:] +
-    OUTER_PATH[:13] +
+    OUTER_PATH[:12] +
     GREEN_HOME_PATH
 )
 
 YELLOW_PATH = (
     OUTER_PATH[26:] +
-    OUTER_PATH[:26] +
+    OUTER_PATH[:25] +
     YELLOW_HOME_PATH
 )
 
 BLUE_PATH = (
     OUTER_PATH[39:] +
-    OUTER_PATH[:39] +
+    OUTER_PATH[:38] +
     BLUE_HOME_PATH
 )
 
